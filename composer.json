@@ -1,15 +1,14 @@
 {
-	"name":"vmwarephp/vmwarephp",
+	"name":"hdcore/vmwarephp",
 	"type":"library",
 	"description":"Vmware vSphere bindings for PHP",
 	"keywords":["vmware", "php", "vsphere", "bindings", "vsphere sdk", "vmware php"],
-	"homepage":"https://github.com/vadimcomanescu/vmwarephp",
+	"homepage":"https://github.com/hdcore/vmwarephp",
 	"license":"BSD-3-Clause",
 	"authors":[
 		{
-			"name":"Vadim Comanescu",
-			"email":"vadim984@gmail.com",
-			"homepage":"http://vadimcomanescu.wordpress.com"
+			"name":"HDCore",
+			"homepage":"http://github.com/hdcore/vmwarephp"
 		}
 	],
 	"require":{
