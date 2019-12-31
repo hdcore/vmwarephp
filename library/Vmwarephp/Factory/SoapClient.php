@@ -20,6 +20,20 @@ class SoapClient {
 			'classmap' => $this->wsdlClassMapper->getClassMap(),
 			'features' => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE
 		);
+		/* START ADD THESE LINES */
+	        $options['stream_context'] = stream_context_create([
+		    'ssl' => [
+		        // set some SSL/TLS specific options
+		        'verify_peer' => false,
+		        'verify_peer_name' => false,
+		        'allow_self_signed' => true
+		    ]
+	        ]);
+	        if(!empty(getenv('HTTP_PROXY'))){
+		    $options['proxy_host'] = parse_url(getenv('HTTP_PROXY'),PHP_URL_HOST);
+		    $options['proxy_port'] = intval(parse_url(getenv('HTTP_PROXY'),PHP_URL_PORT)) ?: 80;
+	        }
+    		/* END ADD THESE LINES */
 		$soapClient = $this->makeDefaultSoapClient($this->wsdlFilePath, $options);
 		if (!$soapClient) throw new Ex\CannotCreateSoapClient();
 		return $soapClient;
